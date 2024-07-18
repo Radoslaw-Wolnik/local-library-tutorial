@@ -1,0 +1,76 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# dotenv environment variable files
+.env
+.env.test
+.env.production
+.env.local
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Next.js build output
+.next/
+
+# Build output directories
+dist/
+build/
+
+# Serverless directories
+.serverless/
+
+# Visual Studio Code files
+.vscode/
+.history/
+
+# Snyk
+.snyk
+
+# TernJS port file
+.tern-port
+
+# REPL history
+.node_repl_history
+
+# Vim swap files
+*.swp
+
+# Temporary files
+*.tmp
+*.temp

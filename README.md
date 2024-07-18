@@ -6,8 +6,12 @@ https://developer.mozilla.org/en-US/docs/Learn/Server-side/
 > express express-local-library-tutorial --view=pug
 
 to run:
-win PS> ENV:DEBUG = "express-locallibrary-tutorial:*"; npm start
-win CMD> SET DEBUG=express-locallibrary-tutorial:* & npm start
+win PS> ENV:DEBUG = "express-local-library-tutorial:*"; npm start
+win CMD> SET DEBUG=express-local-library-tutorial:* & npm start
+
+to reload after save:
+> npm install --save-dev nodemon
+
 
 
 Additionally i will try to conteinerise it 
