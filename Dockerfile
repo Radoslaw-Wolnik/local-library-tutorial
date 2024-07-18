@@ -9,18 +9,22 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
-# Install dependencies production
-# RUN npm install --only=production
+RUN npm ci
+
+# Install production dependencies only
+# RUN npm ci --only=production
 
 # Copy the rest of the application files
 COPY . .
 
-# Expose port 5000 (or any other required port)
-EXPOSE 5000
+# Expose port 3000
+EXPOSE 3000
 
-# Command to run the app (development server)
-CMD ["npm", "run", "dev"]
+# Run the app
+CMD ["npm", "run", "serverstart"]
 
-# Command to run the app production
-# CMD ["node", "index.js"]
+# Set NODE_ENV to production
+# ENV NODE_ENV=production
+
+# run for production
+# CMD ["npm", "run", "prod"]

@@ -12,6 +12,11 @@ win CMD> SET DEBUG=express-local-library-tutorial:* & npm start
 to reload after save:
 > npm install --save-dev nodemon
 
+and now after adding necessary scripts to the package.json 
+to start:
+> npm run serverstart
 
 
-Additionally i will try to conteinerise it 
+
+Additionally i will conteinerise it 
+docker-compose up --build
