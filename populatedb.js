@@ -28,12 +28,28 @@ console.log(
     console.log("Debug: About to connect");
     await mongoose.connect(mongoDB);
     console.log("Debug: Should be connected?");
+    
+    await deleteAllRecords();
     await createGenres();
     await createAuthors();
     await createBooks();
     await createBookInstances();
     console.log("Debug: Closing mongoose");
     mongoose.connection.close();
+  }
+
+  async function deleteAllRecords() {
+    try {
+      await Promise.all([
+        Book.deleteMany({}),
+        Author.deleteMany({}),
+        Genre.deleteMany({}),
+        BookInstance.deleteMany({}),
+      ]);
+      console.log("All records deleted successfully.");
+    } catch (err) {
+      console.error("Error deleting records:", err);
+    }
   }
   
   // We pass the index to the ...Create functions so that, for example,
