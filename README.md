@@ -38,3 +38,9 @@ route paths as regular expressions:
 
 Need to fix genre_detail page/view
 
+
+Deployment: 
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
+I need to go throught them all one by one so they are correct for my implementation
+It changes a lot
+logging, sending, protection against vulnerabilities etc
