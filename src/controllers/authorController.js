@@ -13,7 +13,6 @@ exports.author_list = asyncHandler(async (req, res, next) => {
   
 
 // Display detail page for a specific Author.
-// Display detail page for a specific Author.
 exports.author_detail = asyncHandler(async (req, res, next) => {
     // Get details of author and all their books (in parallel)
     const [author, allBooksByAuthor] = await Promise.all([
