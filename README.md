@@ -36,5 +36,5 @@ route paths as regular expressions:
 
 
 
-
+Need to fix genre_detail page/view
 
