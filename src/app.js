@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,8 +18,10 @@ const mongoose = require("mongoose");
 // Included because it removes preparatory warnings for Mongoose 7.
 // See: https://mongoosejs.com/docs/migrating_to_6.html#strictquery-is-removed-and-replaced-by-strict
 mongoose.set("strictQuery", false);
+
 // Define the database URL to connect to.
-const mongoDB = "mongodb://mongo:27017/my_database";  // Note the change from localhost to mongo
+//const mongoDB = "mongodb://mongo:27017/my_database";  // Note the change from localhost to mongo
+const mongoDB = process.env.MONGODB_URI;
 
 
 // Wait for database to connect, logging an error if there is a problem
