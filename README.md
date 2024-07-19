@@ -17,6 +17,8 @@ to start:
 > npm run serverstart
 
 
-
-Additionally i will conteinerise it 
+MonoDB is in the container, as well as our backend app
 docker-compose up --build
+
+populate db 
+> node populatedb "mongodb://mongo:27017/my_database"
