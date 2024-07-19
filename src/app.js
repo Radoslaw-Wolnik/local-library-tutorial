@@ -20,7 +20,7 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 // Define the database URL to connect to.
-//const mongoDB = "mongodb://mongo:27017/my_database";  // Note the change from localhost to mongo
+//const mongoDB = "mongodb://mongo:27017/my_database";  // directly
 const mongoDB = process.env.MONGODB_URI;
 
 
