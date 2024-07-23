@@ -2,11 +2,15 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    build:
+      context: .
+      target: ${NODE_ENV:-development}
     ports:
       - '3000:3000'
     depends_on:
       - mongo
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
 
   mongo:
     image: mongo:latest
