@@ -14,6 +14,7 @@ FROM node:20 AS development
 WORKDIR /app
 
 COPY --from=builder /app .
+COPY nodemon.json .
 
 EXPOSE 3000
 

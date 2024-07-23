@@ -11,6 +11,10 @@ services:
       - mongo
     environment:
       - NODE_ENV=${NODE_ENV:-development}
+    volumes:
+      - ./src:/app/src:delegated
+      - ./nodemon.json:/app/nodemon.json
+      - /app/node_modules
 
   mongo:
     image: mongo:latest

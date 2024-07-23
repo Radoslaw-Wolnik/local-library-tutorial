@@ -11,35 +11,34 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz", crossorigin="anonymous")
   body
-    .container-fluid
-      .row
-        .col-sm-2
-          block sidebar
-            nav.sidebar-nav
-              ul.list-unstyled
-                li
-                  a.nav-link(href='/catalog', aria-label='Home') Home
-                li
-                  a.nav-link(href='/catalog/books', aria-label='All books') All books
-                li
-                  a.nav-link(href='/catalog/authors', aria-label='All authors') All authors
-                li
-                  a.nav-link(href='/catalog/genres', aria-label='All genres') All genres
-                li
-                  a.nav-link(href='/catalog/bookinstances', aria-label='All book-instances') All book-instances
-                li
-                  hr
-                li
-                  a.nav-link(href='/catalog/author/create', aria-label='Create new author') Create new author
-                li
-                  a.nav-link(href='/catalog/genre/create', aria-label='Create new genre') Create new genre
-                li
-                  a.nav-link(href='/catalog/book/create', aria-label='Create new book') Create new book
-                li
-                  a.nav-link(href='/catalog/bookinstance/create', aria-label='Create new book instance') Create new book instance (copy)
-
-        .col-sm-10
-          block content
-
-    footer.mt-5.bg-light.text-center.py-3
-      p &copy; 2024 LocalLibrary. All rights reserved.
+    .d-flex.flex-column.min-vh-100
+      .container-fluid.flex-grow-1
+        .row
+          .col-sm-2
+            block sidebar
+              nav.sidebar-nav
+                ul.list-unstyled
+                  li
+                    a.nav-link(href='/catalog', aria-label='Home') Home
+                  li
+                    a.nav-link(href='/catalog/books', aria-label='All books') All books
+                  li
+                    a.nav-link(href='/catalog/authors', aria-label='All authors') All authors
+                  li
+                    a.nav-link(href='/catalog/genres', aria-label='All genres') All genres
+                  li
+                    a.nav-link(href='/catalog/bookinstances', aria-label='All book-instances') All book-instances
+                  li
+                    hr
+                  li
+                    a.nav-link(href='/catalog/author/create', aria-label='Create new author') Create new author
+                  li
+                    a.nav-link(href='/catalog/genre/create', aria-label='Create new genre') Create new genre
+                  li
+                    a.nav-link(href='/catalog/book/create', aria-label='Create new book') Create new book
+                  li
+                    a.nav-link(href='/catalog/bookinstance/create', aria-label='Create new book instance') Create new book instance (copy)
+          .col-sm-10
+            block content
+      footer.mt-5.bg-light.text-center.py-3
+        p &copy; 2024 LocalLibrary. All rights reserved.
