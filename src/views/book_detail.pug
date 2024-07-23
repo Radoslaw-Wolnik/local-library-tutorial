@@ -1,41 +1,52 @@
 extends layout
 
 block content
-  h1 Title: #{book.title}
+  h1.mb-4 #{book.title}
 
-  p #[strong Author: ]
-    a(href=book.author.url) #{book.author.name}
-  p #[strong Summary:] #{book.summary}
-  p #[strong ISBN:] #{book.isbn}
-  p #[strong Genre: ]
-    each val, index in book.genre
-      a(href=val.url) #{val.name}
-      if index < book.genre.length - 1
-        |,&nbsp;
+  .card.mb-4
+    .card-body
+      h5.card-title Book Details
+      p.card-text
+        strong Author: 
+        a(href=book.author.url) #{book.author.name}
+      p.card-text
+        strong Summary: 
+        | #{book.summary}
+      p.card-text
+        strong ISBN: 
+        | #{book.isbn}
+      p.card-text
+        strong Genre: 
+        each val, index in book.genre
+          a(href=val.url) #{val.name}#{index < book.genre.length - 1 ? ', ' : ''}
 
-  div(style='margin-left:20px;margin-top:20px')
-    h2(style='font-size: 1.5rem;') Copies
+  h2.mb-3 Copies
 
-    each val in book_instances
-      hr
-      if val.status=='Available'
-        p.text-success #{val.status}
-      else if val.status=='Maintenance'
-        p.text-danger #{val.status}
-      else
-        p.text-warning #{val.status}
-      p #[strong Imprint:] #{val.imprint}
-      if val.status!='Available'
-        p #[strong Due back:] #{val.due_back}
-      p #[strong Id: ]
-        a(href=val.url) #{val._id}
+  if book_instances.length
+    .list-group
+      each val in book_instances
+        .list-group-item
+          h5.mb-1
+            case val.status
+              when 'Available'
+                span.badge.bg-success #{val.status}
+              when 'Maintenance'
+                span.badge.bg-danger #{val.status}
+              default
+                span.badge.bg-warning #{val.status}
+          p.mb-1
+            strong Imprint: 
+            | #{val.imprint}
+          if val.status !== 'Available'
+            p.mb-1
+              strong Due back: 
+              | #{val.due_back}
+          p.mb-1
+            strong ID: 
+            a(href=val.url) #{val._id}
+  else
+    .alert.alert-info There are no copies of this book in the library.
 
-    else
-      p There are no copies of this book in the library.
-
-
-    hr
-    p
-      a(href=book.url+'/delete') Delete Book
-    p
-      a(href=book.url+'/update') Update Book
+  .mt-4
+    a.btn.btn-danger.me-2(href=`${book.url}/delete`) Delete Book
+    a.btn.btn-primary(href=`${book.url}/update`) Update Book

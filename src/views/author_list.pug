@@ -1,13 +1,14 @@
 extends layout
 
 block content
-  h1= title
+  h1.mb-4= title
 
   if author_list.length
-    ul
+    .list-group
       each author in author_list
-        li
-          a(href=author.url) #{author.name}
-          |  (#{author.date_of_birth} - #{author.date_of_death})
+        a.list-group-item.list-group-item-action(href=author.url)
+          .d-flex.w-100.justify-content-between
+            h5.mb-1 #{author.name}
+            small #{author.date_of_birth} - #{author.date_of_death}
   else
-    p There are no authors.
+    .alert.alert-info No authors are currently available.

@@ -1,21 +1,21 @@
 extends layout
 
 block content
+  h1.mb-4 Author: #{author.name}
+  p.lead #{author.date_of_birth} - #{author.date_of_death}
 
-  h1 Author: #{author.name}
-  p #{author.date_of_birth} - #{author.date_of_death}
+  .card.mt-4
+    .card-body
+      h2.card-title.h4 Books by this author
+      if author_books.length
+        .list-group.list-group-flush
+          each book in author_books
+            .list-group-item
+              h5.mb-1
+                a(href=book.url) #{book.title}
+              p.mb-1 #{book.summary}
+      else
+        p.card-text This author has no books.
 
-  div(style='margin-left:20px;margin-top:20px')
-
-    h2(style='font-size: 1.5rem;') Books
-    if author_books.length
-      dl
-        each book in author_books
-          dt
-            a(href=book.url) #{book.title}
-          dd #{book.summary}
-    else
-      p This author has no books.
-    hr
-    p
-      a(href=author.url+'/delete') Delete author
+  .mt-4
+    a.btn.btn-danger(href=`${author.url}/delete`) Delete Author

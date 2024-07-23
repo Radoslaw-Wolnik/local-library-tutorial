@@ -1,12 +1,11 @@
 extends layout
 
 block content
-  h1= title
+  h1.mb-4= title
 
   if genre_list.length
-    ul
+    .list-group
       each genre in genre_list
-        li
-          a(href=genre.url) #{genre.name}
+        a.list-group-item.list-group-item-action(href=genre.url) #{genre.name}
   else
-    p There are no genres.
+    .alert.alert-info No genres are currently available.

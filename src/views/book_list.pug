@@ -1,13 +1,13 @@
 extends layout
 
 block content
-  h1= title
+  h1.mb-4= title
   if book_list.length
-    ul
+    .list-group
       each book in book_list
-        li
-          a(href=book.url) #{book.title}
-          |  (#{book.author.name})
-
+        a.list-group-item.list-group-item-action(href=book.url)
+          .d-flex.w-100.justify-content-between
+            h5.mb-1 #{book.title}
+            small #{book.author.name}
   else
-    p There are no books.
+    .alert.alert-info No books are currently available.

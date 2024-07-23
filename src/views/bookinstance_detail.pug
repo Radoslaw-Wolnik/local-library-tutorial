@@ -1,20 +1,25 @@
 extends layout
 
 block content
+  h1.mb-4 Book Instance: #{bookinstance._id}
 
-  h1 ID: #{bookinstance._id}
-
-  p #[strong Title: ]
-    a(href=bookinstance.book.url) #{bookinstance.book.title}
-  p #[strong Imprint:] #{bookinstance.imprint}
-
-  p #[strong Status: ]
-    if bookinstance.status=='Available'
-      span.text-success #{bookinstance.status}
-    else if bookinstance.status=='Maintenance'
-      span.text-danger #{bookinstance.status}
-    else
-      span.text-warning #{bookinstance.status}
-
-  if bookinstance.status!='Available'
-    p #[strong Due back:] #{bookinstance.due_back}
+  .card
+    .card-body
+      h5.card-title
+        a(href=bookinstance.book.url) #{bookinstance.book.title}
+      p.card-text
+        strong Imprint: 
+        | #{bookinstance.imprint}
+      p.card-text
+        strong Status: 
+        case bookinstance.status
+          when 'Available'
+            span.badge.bg-success #{bookinstance.status}
+          when 'Maintenance'
+            span.badge.bg-danger #{bookinstance.status}
+          default
+            span.badge.bg-warning #{bookinstance.status}
+      if bookinstance.status != 'Available'
+        p.card-text
+          strong Due back: 
+          | #{bookinstance.due_back}

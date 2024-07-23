@@ -4,13 +4,24 @@ block content
   h1= title
   p Welcome to #[em LocalLibrary], a very basic Express website developed as a tutorial example on the Mozilla Developer Network.
 
-  h2 Dynamic content
+  h2.mt-4 Dynamic content
 
-  p The library has the following record counts:
-
-  ul
-    li #[strong Books:] !{book_count}
-    li #[strong Copies:] !{book_instance_count}
-    li #[strong Copies available:] !{book_instance_available_count}
-    li #[strong Authors:] !{author_count}
-    li #[strong Genres:] !{genre_count}
+  .card.mt-3
+    .card-body
+      h3.card-title Library Statistics
+      ul.list-group.list-group-flush
+        li.list-group-item
+          i.fas.fa-book.mr-2
+          | #[strong Books:] !{book_count}
+        li.list-group-item
+          i.fas.fa-copy.mr-2
+          | #[strong Copies:] !{book_instance_count}
+        li.list-group-item
+          i.fas.fa-check-circle.mr-2
+          | #[strong Copies available:] !{book_instance_available_count}
+        li.list-group-item
+          i.fas.fa-users.mr-2
+          | #[strong Authors:] !{author_count}
+        li.list-group-item
+          i.fas.fa-tags.mr-2
+          | #[strong Genres:] !{genre_count}
