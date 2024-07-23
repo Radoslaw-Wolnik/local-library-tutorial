@@ -10,7 +10,7 @@ const GenreSchema = new Schema({
 // Virtual for book's URL
 GenreSchema.virtual("url").get(function () {
   // We don't use an arrow function as we'll need the this object
-  return `/catalog/${this._id}`;
+  return `/genre/${this._id}`;
 });
 
 // Export model
