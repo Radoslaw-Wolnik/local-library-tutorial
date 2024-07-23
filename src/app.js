@@ -1,6 +1,7 @@
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import dotenv from 'dotenv';
@@ -10,6 +11,9 @@ import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import apiRouter from './routes/api/index.js';
 import catalogRouter from './routes/catalog.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -25,7 +29,9 @@ const main = async () => {
 
 main().catch((err) => console.log(err));
 
-app.set('views', path.join(process.cwd(), 'views'));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+// app.set('views', path.join(process.cwd(), 'views')); proper but doesnt work
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./src/bin/www.js",
     "dev": "nodemon ./src/bin/www.js",
+    "devstart": "SET DEBUG=express-locallibrary-tutorial:* & npm run dev",
     "prod": "NODE_ENV=production node ./src/bin/www.js"
   },
   "dependencies": {
